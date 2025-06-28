@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TrafficTelligence - Application Hub</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://images.unsplash.com/photo-1508087627413-0da3b285b3fa?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .app-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        a {
+            display: block;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Welcome to TrafficTelligence</h1>
+        <div class="nav-links">
+            <a href="/">📊 Upload Data</a>
+            <a href="/result">📈 View Results</a>
+            <a href="/about">ℹ️ About</a>
+            <a href="/contact">📬 Contact</a>
+        </div>
+        <footer>
+            &copy; 2025 TrafficTelligence | Urban Mobility Solutions
+        </footer>
+    </div>
+</body>
+</html>
