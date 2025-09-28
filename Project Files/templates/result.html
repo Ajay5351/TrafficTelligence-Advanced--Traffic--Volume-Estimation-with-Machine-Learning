@@ -1,116 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prediction Result - TrafficTelligence</title>
-    <style>
-        /* (Your existing CSS unchanged) */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #11998e, #38ef7d);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
-        }
+{% extends "base.html" %}
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            padding: 40px 30px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
+{% block title %}Traffic Prediction Result{% endblock %}
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
 
-        .prediction-list {
-            font-size: 22px;
-            color: #ffffcc;
-            margin-bottom: 20px;
-            text-align: left;
-            max-height: 300px;
-            overflow-y: auto;
-            padding-left: 20px;
-        }
-
-        .note {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #e2e2e2;
-        }
-
-        .back-btn {
-            background-color: #ffffff;
-            color: #11998e;
-            font-weight: bold;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .back-btn:hover {
-            background-color: #d5f5e3;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #f0f0f0;
-        }
-
-        .icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="icon">🚗</div>
-        <h1>Traffic Volume Predictions</h1>
-
-        <!-- Replace single prediction with a list -->
-        <ul class="prediction-list">
-            {% for pred in predictions %}
-                <li>{{ pred | round(2) }} vehicles</li>
-            {% endfor %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow text-center">
+        <h2 class="mb-4">Predicted Traffic Volume</h2>
+        <h1 class="display-4 text-success">{{ prediction }}</h1>
+        <p class="mt-3">vehicles expected for the given conditions:</p>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>Hour:</strong> {{ hour }}</li>
+            <li class="list-group-item"><strong>Temperature:</strong> {{ temp }} °C</li>
+            <li class="list-group-item"><strong>Holiday:</strong> {% if holiday == 1 %}Yes{% else %}No{% endif %}</li>
+            <li class="list-group-item"><strong>Weather:</strong> {{ weather_main }}</li>
         </ul>
-
-        <p class="note">
-            These predictions are based on the provided input data.<br>
-            For more accurate results, consider real-time sensor data and additional factors.
-        </p>
-        <a class="back-btn" href="/">&#8592; Upload Another File</a>
-        <footer>
-            &copy; 2025 TrafficTelligence | Smart Urban Mobility Intelligence
-        </footer>
+        <a href="/" class="btn btn-primary mt-3">Predict Again</a>
     </div>
-
-</body>
-</html>
+</div>
+{% endblock %}

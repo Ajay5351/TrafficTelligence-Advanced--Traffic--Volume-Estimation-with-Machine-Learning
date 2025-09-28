@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Traffic Intelligence{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">❓ Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                    How accurate is the prediction?
+                </button>
+            </h2>
+            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Accuracy depends on data quality, but Random Forest provides robust predictions.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                    Can I use this system in real-time traffic control?
+                </button>
+            </h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, by connecting the system to live IoT devices and traffic cameras.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

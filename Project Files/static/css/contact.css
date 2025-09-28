@@ -1,0 +1,15 @@
+form.card {
+    border-radius: 15px;
+    background: #fff;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+form input, form textarea {
+    border-radius: 10px;
+}
+
+form button {
+    border-radius: 30px;
+    font-size: 1.1rem;
+}

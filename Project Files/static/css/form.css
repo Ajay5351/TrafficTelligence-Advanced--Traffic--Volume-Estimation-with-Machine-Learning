@@ -1,0 +1,18 @@
+form.card {
+    border-radius: 15px;
+    background: #fff;
+    transition: transform 0.2s ease-in-out;
+}
+
+form.card:hover {
+    transform: scale(1.01);
+}
+
+input, select {
+    border-radius: 10px !important;
+}
+
+button[type="submit"] {
+    border-radius: 30px;
+    font-size: 1.1rem;
+}

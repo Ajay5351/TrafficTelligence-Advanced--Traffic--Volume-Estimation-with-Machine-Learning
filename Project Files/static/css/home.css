@@ -1,0 +1,17 @@
+.hero-section {
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    padding: 120px 20px;
+    border-radius: 0 0 60px 60px;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.hero-section .btn {
+    border-radius: 30px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}

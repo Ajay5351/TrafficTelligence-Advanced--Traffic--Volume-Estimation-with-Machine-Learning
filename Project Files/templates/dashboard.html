@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Traffic Intelligence{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📊 Traffic Dashboard</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card p-3 shadow">
+                <h5>Recent Predictions</h5>
+                <ul>
+                    <li>Monday 8 AM – 2300 vehicles</li>
+                    <li>Monday 6 PM – 4500 vehicles</li>
+                    <li>Tuesday 9 AM – 2100 vehicles</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 shadow">
+                <h5>Insights</h5>
+                <p>🚗 Peak traffic usually occurs between <strong>8 AM - 10 AM</strong> and <strong>5 PM - 7 PM</strong>.</p>
+                <p>🌧️ Rainy weather increases congestion by ~20%.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,77 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TrafficTelligence - Application Hub</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://images.unsplash.com/photo-1508087627413-0da3b285b3fa?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
+{% extends "base.html" %}
 
-        .app-container {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 700px;
-            text-align: center;
-        }
+{% block title %}Predict Traffic - Traffic Intelligence{% endblock %}
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 30px;
-        }
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
 
-        .nav-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Enter Traffic Data</h2>
 
-        a {
-            display: block;
-            padding: 16px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        a:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #ddd;
-        }
-    </style>
-</head>
-<body>
-    <div class="app-container">
-        <h1>Welcome to TrafficTelligence</h1>
-        <div class="nav-links">
-            <a href="/">📊 Upload Data</a>
-            <a href="/result">📈 View Results</a>
-            <a href="/about">ℹ️ About</a>
-            <a href="/contact">📬 Contact</a>
+    <form method="POST" action="/result" class="card p-4 shadow">
+        
+        <div class="mb-3">
+            <label for="hour" class="form-label">Hour of Day (0-23)</label>
+            <input type="number" class="form-control" id="hour" name="hour" min="0" max="23" required>
         </div>
-        <footer>
-            &copy; 2025 TrafficTelligence | Urban Mobility Solutions
-        </footer>
-    </div>
-</body>
-</html>
+
+        <div class="mb-3">
+            <label for="temp" class="form-label">Temperature (°C)</label>
+            <input type="number" step="0.1" class="form-control" id="temp" name="temp" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="holiday" class="form-label">Holiday</label>
+            <select class="form-select" id="holiday" name="holiday" required>
+                <option value="0" selected>No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="weather_main" class="form-label">Weather</label>
+            <select class="form-select" id="weather_main" name="weather_main" required>
+                <option value="Clear" selected>Clear</option>
+                <option value="Rain">Rain</option>
+                <option value="Snow">Snow</option>
+                <option value="Clouds">Clouds</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Predict Traffic Volume</button>
+    </form>
+</div>
+{% endblock %}
